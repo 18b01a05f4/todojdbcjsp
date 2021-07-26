@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Home page</title>
 </head>
 <body>
 	<a href="addTask.jsp">Click here to add new task</a><br><br>

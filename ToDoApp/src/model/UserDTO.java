@@ -4,6 +4,10 @@ public class UserDTO {
 	private int taskId;
 	private String task;
 	
+	public UserDTO() {
+		
+	}
+	
 	public UserDTO(int taskId, String task) {
 		super();
 		this.taskId = taskId;
