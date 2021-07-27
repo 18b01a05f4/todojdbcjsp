@@ -22,13 +22,12 @@
 			<tr>
 				<td><%=userdto.getTaskId() %></td>
 				<td><%=userdto.getTask() %></td>
-				<td><a href="editpage.jsp?task_info=<%=userdto.getTask() %>">EDIT</a></td>
+				<td><a href="editpage.jsp?task_id=<%=userdto.getTaskId() %>">EDIT</a></td>
 				<td><a href="deleteServlet?task_id=<%=userdto.getTaskId() %>" >DELETE</a></td>
 			</tr>
 		<%} %>
 		<% }%>
 	</table>
-	
 	
 </body>
 </html>
