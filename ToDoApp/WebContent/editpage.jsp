@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href=""></a>
+	<h1>This is edit page</h1>
 </body>
 </html>

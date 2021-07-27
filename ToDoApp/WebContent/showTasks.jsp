@@ -15,12 +15,15 @@
 		<tr>
 			<th>TaskId</th>
 			<th>Task</th>
+			<th>Actions&nbsp;&nbsp;&nbsp;&nbsp;</th>
 		</tr>
 		<%if(tasklist != null) { %>
 		<%for(UserDTO userdto : tasklist) { %>
 			<tr>
 				<td><%=userdto.getTaskId() %></td>
 				<td><%=userdto.getTask() %></td>
+				<td><a href="editpage.jsp?task_info=<%=userdto.getTask() %>">EDIT</a></td>
+				<td><a href="deleteServlet?task_id=<%=userdto.getTaskId() %>" >DELETE</a></td>
 			</tr>
 		<%} %>
 		<% }%>

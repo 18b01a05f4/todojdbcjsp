@@ -59,6 +59,27 @@ public class UserDAO {
 		return 0;
 	}
 	
+	//Update User...
+	
+	public boolean updateTask(UserDTO user) {
+		Connection connection = getConnection();
+		PreparedStatement preparedStatement = null;
+		String UPDATE = "Update todolist set task=? where taskId=?";
+		boolean rowsUpdated = false;
+		
+		try {
+			preparedStatement = connection.prepareStatement(UPDATE);
+			preparedStatement.setString(1,user.getTask());
+			preparedStatement.setInt(2,user.getTaskId());
+		
+			rowsUpdated = preparedStatement.executeUpdate() > 0;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return rowsUpdated;
+	}
+
+	
 	
 	//Fetching all the task table...
 	
@@ -86,5 +107,23 @@ public class UserDAO {
 		return tasklist;
 	}
 		
+	//Delete task...
+	
+	public boolean deleteTask(int taskId) {
+		boolean rowsDeleted = false;
+		Connection connection = getConnection();
+		PreparedStatement preparedStatement = null;
+		String DELETE = "Delete from todolist where taskId=?";
+		try {
+			preparedStatement = connection.prepareStatement(DELETE);
+			preparedStatement.setInt(1,taskId);
+			rowsDeleted = preparedStatement.executeUpdate() > 0;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return rowsDeleted;
+	}
+	
+	
 	
 }
