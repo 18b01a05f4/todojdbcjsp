@@ -8,6 +8,6 @@
 </head>
 <body>
 	<a href="addTask.jsp">Click here to add new task</a><br><br>
-	<a href="showAllTasks.jsp">Click here to view all tasks</a>
+	<a href="showAllTasks">Click here to view all tasks</a>
 </body>
 </html>

@@ -9,23 +9,22 @@
 <title>Task List</title>
 </head>
 <body>
-	<% List<UserDTO> tasklist = (List<UserDTO>)request.getAttribute("UserTaskList");%>
+	<% ArrayList<UserDTO> tasklist = (ArrayList<UserDTO>)request.getAttribute("al");%>
 	<%@ include file="index.jsp"%>
 	<table align="center" border="1">
 		<tr>
 			<th>TaskId</th>
 			<th>Task</th>
 		</tr>
-		<%if(tasklist != null) { %>   
-			<%for (int i = 0; i < tasklist.size(); i++) {  %>
-				<tr>
-					<td><%=tasklist.get(i).getTaskId()%></td>
-					<td><%=tasklist.get(i).getTask()%></td>
-				</tr>
-			<% } %>
-		<%} %>  
+		<%if(tasklist != null) { %>
+		<%for(UserDTO userdto : tasklist) { %>
+			<tr>
+				<td><%=userdto.getTaskId() %></td>
+				<td><%=userdto.getTask() %></td>
+			</tr>
+		<%} %>
+		<% }%>
 	</table>
-	
 	
 	
 </body>

@@ -62,12 +62,12 @@ public class UserDAO {
 	
 	//Fetching all the task table...
 	
-	public List<UserDTO> getAllTasks() {
+	public ArrayList<UserDTO> getAllTasks() {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultset = null;
 		
-		List<UserDTO> tasklist = new ArrayList<>();
+		ArrayList<UserDTO> tasklist = new ArrayList<UserDTO>();
 		String SELECT = "Select * from todolist";
 		connection = getConnection();
 		
@@ -75,26 +75,15 @@ public class UserDAO {
 			preparedStatement = connection.prepareStatement(SELECT);
 			resultset = preparedStatement.executeQuery();
 			while(resultset.next()) {
-				UserDTO userdto = new UserDTO();
-				userdto.setTaskId(resultset.getInt(1));
-				userdto.setTask(resultset.getString(2));
+				int id = resultset.getInt(1);
+				String task = resultset.getString(2);
 				
-				tasklist.add(userdto);
+				tasklist.add(new UserDTO(id,task));
 			}
-			return tasklist;
 		}catch(SQLException e) {
 			e.printStackTrace();
-		}finally {
-			try {
-				if(connection != null) {
-					connection.close();
-					preparedStatement.close();
-				}
-			}catch(SQLException e) {
-				e.printStackTrace();
-			}
-		}	
-		return null;
+		}
+		return tasklist;
 	}
 		
 	

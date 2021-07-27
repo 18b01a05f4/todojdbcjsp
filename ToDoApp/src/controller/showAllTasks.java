@@ -23,14 +23,13 @@ public class showAllTasks extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		UserDAO userdao = new UserDAO();
-		UserDTO userdto = new UserDTO();
-		List<UserDTO> al = userdao.getAllTasks();
-		
+		ArrayList<UserDTO> al = userdao.getAllTasks();
+//		out.println(al.size());
 		if(al != null) {
-			request.setAttribute("UserTaskList",al);
-			RequestDispatcher requestdispatcher = request.getRequestDispatcher("showAllTasks.jsp");
+			request.setAttribute("al",al);
+			RequestDispatcher requestdispatcher = request.getRequestDispatcher("showTasks.jsp");
 			requestdispatcher.include(request, response);
-			System.out.println(al.get(0).getTask());
+//			out.println(al.get(0).getTask());
 		}
 		else out.println("<h1>Record not found...!</h1>");
 		
